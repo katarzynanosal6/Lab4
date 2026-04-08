@@ -19,9 +19,27 @@ namespace Lab4
         private void button1_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Image == null) return;
-            if (rb90.Checked) pictureBox1.Image.RotateFlip(RotateFlipType.Rotate90FlipNone); 
+            if (rb90.Checked) pictureBox1.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
             else if (rb180.Checked) pictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
             else if (rb270.Checked) pictureBox1.Image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            pictureBox1.Refresh();
+        }
+
+        private void btnInvert_Click(object sender, EventArgs e)
+        {
+            Bitmap bmp = (Bitmap)pictureBox1.Image;
+            for (int y = 0; y < bmp.Height; y++)
+                for (int x = 0; x < bmp.Width; x++)
+                {
+                    Color c = bmp.GetPixel(x, y);
+                    bmp.SetPixel(x, y, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
+                }
+            pictureBox1.Refresh();
+        }
+
+        private void btnUpsideDown_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image.RotateFlip(RotateFlipType.RotateNoneFlipY);
             pictureBox1.Refresh();
         }
     }
