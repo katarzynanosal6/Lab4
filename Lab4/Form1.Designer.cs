@@ -36,6 +36,7 @@
             button1 = new Button();
             btnInvert = new Button();
             btnUpsideDown = new Button();
+            btnOnlyGreen = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -120,11 +121,22 @@
             btnUpsideDown.UseVisualStyleBackColor = true;
             btnUpsideDown.Click += btnUpsideDown_Click;
             // 
+            // btnOnlyGreen
+            // 
+            btnOnlyGreen.Location = new Point(64, 313);
+            btnOnlyGreen.Name = "btnOnlyGreen";
+            btnOnlyGreen.Size = new Size(131, 40);
+            btnOnlyGreen.TabIndex = 8;
+            btnOnlyGreen.Text = "Only Green";
+            btnOnlyGreen.UseVisualStyleBackColor = true;
+            btnOnlyGreen.Click += btnOnlyGreen_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnOnlyGreen);
             Controls.Add(btnUpsideDown);
             Controls.Add(btnInvert);
             Controls.Add(button1);
@@ -150,5 +162,6 @@
         private Button button1;
         private Button btnInvert;
         private Button btnUpsideDown;
+        private Button btnOnlyGreen;
     }
 }

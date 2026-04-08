@@ -1,3 +1,7 @@
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace Lab4
 {
     public partial class Form1 : Form
@@ -40,6 +44,31 @@ namespace Lab4
         private void btnUpsideDown_Click(object sender, EventArgs e)
         {
             pictureBox1.Image.RotateFlip(RotateFlipType.RotateNoneFlipY);
+            pictureBox1.Refresh();
+        }
+
+        private void btnOnlyGreen_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image == null) return;
+
+            Bitmap bmp = new Bitmap(pictureBox1.Image);
+
+            for (int y = 0; y < bmp.Height; y++)
+            {
+                for (int x = 0; x < bmp.Width; x++)
+                {
+                    Color c = bmp.GetPixel(x, y);
+
+                  
+                    if (!(c.G > c.R && c.G > c.B))
+                    {
+                        
+                        bmp.SetPixel(x, y, Color.Black);
+                    }
+                }
+            }
+            
+            pictureBox1.Image = bmp;
             pictureBox1.Refresh();
         }
     }
